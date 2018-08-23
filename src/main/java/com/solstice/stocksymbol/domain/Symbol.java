@@ -1,10 +1,14 @@
 package com.solstice.stocksymbol.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "symbols")
 public class Symbol {
 
+    @Id
     private Long id;
     private String symbol;
 
