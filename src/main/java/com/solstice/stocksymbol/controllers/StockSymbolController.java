@@ -21,4 +21,7 @@ public class StockSymbolController {
         return symbolRepository.findById(id).get();
     }
 
+    @GetMapping("/ids/{symbol}")
+    public Symbol getIdBySymbol(@PathVariable("symbol") String symbol){ return symbolRepository.findBySymbol(symbol);}
+
 }

@@ -9,15 +9,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest()
 public class StockSymbolControllerIntegrationTest {
 
     @Autowired
     private StockSymbolController stockSymbolController;
 
     @Test
-    public void testGetSymbolName(){
+    public void testGetSymbolNameById(){
         Symbol aSymbol = stockSymbolController.getSymbolById(Long.valueOf("1"));
         Assert.assertEquals("AAPL", aSymbol.getSymbol());
+    }
+
+    @Test
+    public void testGetIdBySymbol(){
+        Symbol aSymbol = stockSymbolController.getIdBySymbol("AAPL");
+        Assert.assertEquals(Long.valueOf("1"), aSymbol.getId());
     }
 }
